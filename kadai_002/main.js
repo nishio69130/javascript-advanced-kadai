@@ -91,7 +91,8 @@ const timer = () => {
 
         if(time <= 0) {
             setTimeout(() => {
-                untypedfield.textContent ='タイムアップ!';                
+                untypedfield.textContent ='タイムアップ!';
+                typedfield.textContent ='';
                 setTimeout(() => {
                     gameOver(id);
                 }, 100);
