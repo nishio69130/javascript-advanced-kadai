@@ -90,12 +90,10 @@ const timer = () => {
         count.textContent = time;
 
         if(time <= 0) {
+            untypedfield.textContent ='タイムアップ!';
+            typedfield.textContent ='';                            
             setTimeout(() => {
-                untypedfield.textContent ='タイムアップ!';
-                typedfield.textContent ='';
-                setTimeout(() => {
-                    gameOver(id);
-                }, 100);
+                gameOver(id);
             }, 100);            
         }
     }, 1000);
