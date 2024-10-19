@@ -112,5 +112,3 @@ start.addEventListener('click', () => {
 });
 
 untypedfield.textContent = 'スタートボタンで開始';
-
-
