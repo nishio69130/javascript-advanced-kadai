@@ -73,8 +73,6 @@ const rankCheck = score => {
 };
 
 const gameOver = id => {
-    clearInterval(id);
-
     const result = confirm(rankCheck(score));
 
     if(result == true) {
@@ -83,21 +81,23 @@ const gameOver = id => {
 };
 
 const timer = () => {
-    let time = count.textContent;
+    let time = parseInt(count.textContent);
 
     const id = setInterval(() => {
         time--;
         count.textContent = time;
 
-        if(time <= 0) {
-            untypedfield.textContent ='タイムアップ!';
-            typedfield.textContent ='';                            
+        if (time <= 0) {
+            clearInterval(id); // タイマーをクリア
+            untypedfield.textContent = 'タイムアップ!';
+            typedfield.textContent = '';
             setTimeout(() => {
                 gameOver(id);
-            }, 100);            
+            }, 100);
         }
     }, 1000);
 };
+
 
 start.addEventListener('click', () => {
     timer();
